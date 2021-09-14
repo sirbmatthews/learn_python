@@ -43,6 +43,7 @@ def printStage(lives):
     print(stages[lives])
 
 def printWord(chosen_word):
+    """"Prints the word being guessed."""
     print(f"The word is {chosen_word}")
 
 def startGame():
@@ -60,8 +61,8 @@ def startGame():
     while not end_of_game:
         guess = input("Guess a letter: ").lower()
 
-        while len(guess) is not 1:
-            guess = input("Guess only one letter: ").lower()
+        while len(guess) is not 1 or not guess.isalpha():
+            guess = input("Guess a single letter [A-z]: ").lower()
 
         isLetterGuessed(guess, guessed_letters)        
         display = checkGuessedLetter(chosen_word, guess, display)
