@@ -1,3 +1,3 @@
-def bmiCalculator(height, weight):
-    bmi = round(weight / (height ** 2))
-    return bmi
+def calculate_bmi(height, weight):
+    """Returns the BMI value of the given height and weight"""
+    return round(weight / (height ** 2))
