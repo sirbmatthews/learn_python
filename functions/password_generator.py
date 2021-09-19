@@ -5,19 +5,20 @@ numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+', '}', '{', '-', '/', '|']
 
 def generate_password(password_length):
-  password = ""
-  nr_letters = random.randint(int(round(password_length/2)), password_length - 2)
-  nr_symbols = random.randint(1, int(round((password_length - nr_letters)/2)))
-  nr_numbers = password_length - nr_letters - nr_symbols
-  
-  for _ in range(0, nr_letters):
-    password += random.choice(letters)
+	"""Generates a password using the provided password length"""
+	password = ""
+	nr_letters = random.randint(int(round(password_length/2)), password_length - 2)
+	nr_symbols = random.randint(1, int(round((password_length - nr_letters)/2)))
+	nr_numbers = password_length - nr_letters - nr_symbols
 
-  for _ in range(0, nr_symbols):
-    password += random.choice(symbols)
+	for _ in range(0, nr_letters):
+		password += random.choice(letters)
 
-  for _ in range(0, nr_numbers):
-    password += random.choice(numbers)
+	for _ in range(0, nr_symbols):
+		password += random.choice(symbols)
 
-  password = ''.join(random.sample(password, len(password)))  
-  return password
+	for _ in range(0, nr_numbers):
+		password += random.choice(numbers)
+
+	password = ''.join(random.sample(password, len(password)))  
+	return password
